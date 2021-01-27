@@ -78,8 +78,9 @@ MatrixXd Hj(3,4);
     Hj(1,2)=     0;
     Hj(1,3)=0;
     
-    Hj(2,0)=py*(vx_py)/((px2_py2*px2_py2*px2_py2)/(px2_py2*px2_py2));
-    Hj(2,1)=-px*(vx_py)/pow((px2_py2),3/2); 
+    //Hj(2,0)=py*(vx_py)/powf((px2_py2),3/2);
+    Hj(2,0)=py*(vx_py)/(px2_py2*sqrt(px2_py2));
+    Hj(2,1)=-px*(vx_py)/powf((px2_py2),1.5); 
     Hj(2,2)=px/sqrt(px2_py2);
     Hj(2,3)=py/sqrt(px2_py2);
             

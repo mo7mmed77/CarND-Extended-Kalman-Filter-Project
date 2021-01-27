@@ -1,8 +1,8 @@
 #include "kalman_filter.h"
+//#define NOMINMAX;
 
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
-
 KalmanFilter::KalmanFilter() {}
 
 KalmanFilter::~KalmanFilter() {}
@@ -56,13 +56,9 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 
   double rho= sqrt(px*px + py*py);
   double rho_dot;
+  float eps = 0.0001;
 
-/*if(fabs(rho)<0,0001){
-  rho_dot=0;
-} else{
-  */
- rho_dot=(vx*px +vy*py)/(rho);
-//}
+  rho_dot = (vx*px +vy*py) / (rho);
 
   double phi = atan2(py,px);
   hx<<rho,phi,rho_dot;
