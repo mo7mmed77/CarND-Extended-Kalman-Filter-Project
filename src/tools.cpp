@@ -69,7 +69,9 @@ MatrixXd Hj(3,4);
     float vx_py=(vx*py)-(vy*px);
     
     Hj(0,0)= px/sqrt(px2_py2);
+
     Hj(0,1)=  py/sqrt(px2_py2);
+    
     Hj(0,2)= 0;
     Hj(0,3)= 0;
     
